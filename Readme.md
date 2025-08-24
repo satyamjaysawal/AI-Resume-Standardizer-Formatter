@@ -75,7 +75,7 @@ A powerful Streamlit application that converts resumes into formal, professional
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/satyamjaysawal/AI-Resume-Standardizer-Formatter.git
 cd formal-resume-standardizer
 ```
 
@@ -162,4 +162,5 @@ Contributions to improve the resume standardizer are welcome! Please feel free t
 For questions or issues related to this application, please check the documentation or create an issue in the project repository.
 
 ---
+
 
