@@ -1,5 +1,12 @@
 # Mermaid Diagram: Formal Resume Standardizer Process Flow
 
+
+
+
+<img width="1911" height="986" alt="image" src="https://github.com/user-attachments/assets/3a533192-3f7e-4ab8-af0c-c252da3b38b1" />
+
+
+
 ```mermaid
 flowchart TD
     A[📄 User Opens App] --> B["🔑 Enter Gemini API Key<br>(Purpose: Authenticate AI Services)"]
@@ -155,3 +162,4 @@ Contributions to improve the resume standardizer are welcome! Please feel free t
 For questions or issues related to this application, please check the documentation or create an issue in the project repository.
 
 ---
+
