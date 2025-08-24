@@ -142,25 +142,4 @@ The generated formal resume includes:
 - **Skill Identification**: Automatically discover and highlight key competencies
 - **ATS Optimization**: Generate resumes that perform well with applicant tracking systems
 
-## ⚠️ Limitations
-
-- Processing time depends on resume length and complexity
-- Very image-heavy PDFs may have limited text extraction
-- Complex formatting in original documents may not be perfectly preserved
-- Requires an active internet connection for Gemini AI processing
-
-## 📝 License
-
-This project is provided for educational and professional use. Please ensure you comply with Google's Gemini API terms of service when using this application.
-
-## 🤝 Contributing
-
-Contributions to improve the resume standardizer are welcome! Please feel free to submit issues, feature requests, or pull requests.
-
-## 📞 Support
-
-For questions or issues related to this application, please check the documentation or create an issue in the project repository.
-
----
-
-
+****
