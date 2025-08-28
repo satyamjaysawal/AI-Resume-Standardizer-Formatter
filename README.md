@@ -85,9 +85,8 @@ from typing import Dict, Any
 # Step 0: Import necessary libraries
 # azure-ai-formrecognizer: For PDF text extraction and OCR
 # azure-openai: For structuring extracted text into JSON
-# python-docx: For manipulating DOCX files
-# lxml, pillow, pymupdf: For XML handling, images, and PDF processing
-# python-dotenv: For loading environment variables from .env
+
+
 from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 from openai import AzureOpenAI
