@@ -7,6 +7,127 @@
 
 
 
+# Complete Mermaid Diagram for Resume Templater Project
+
+```mermaid
+flowchart TD
+    %% Start of the process
+    Start([Start Resume Templater Project]) --> Setup[Project Setup Phase]
+    
+    %% Setup Phase
+    subgraph SetupPhase [Initial Setup]
+        direction TB
+        S1[Create Folder Structure]
+        S2[Install Python Dependencies<br>pip install -r requirements.txt]
+        S3[Configure Azure Services<br>Create Document Intelligence & OpenAI Resources]
+        S4[Prepare Template Files<br>Place Resume-template-use.docx in template/]
+        S5[Prepare Input Files<br>Place shivam-cv.pdf in input/]
+        S6[Configure Coordinate Mapping<br>Measure positions in Word & update coords.json]
+        S7[Set Environment Variables<br>Add Azure credentials to .env file]
+    end
+    
+    Setup --> SetupPhase
+    SetupPhase --> RunMain[Execute Main Script: python main.py]
+    
+    %% Extraction Phase
+    RunMain --> Extract[Content Extraction Phase]
+    
+    subgraph ExtractPhase [PDF Content Extraction]
+        direction TB
+        E1[Load PDF Bytes from input/shivam-cv.pdf]
+        E2[Extract Text with Azure Form Recognizer]
+        E3[OCR Processing for Scanned Content]
+        E4[Extract Images/Logos from PDF using PyMuPDF]
+        E5[Handle Text & Image Extraction Errors]
+    end
+    
+    Extract --> ExtractPhase
+    ExtractPhase --> AIProcess[AI Processing Phase]
+    
+    %% AI Processing Phase
+    subgraph AIProcessPhase [AI Content Processing]
+        direction TB
+        P1[Structure Content with Azure OpenAI GPT-4o]
+        P2[Parse into Structured JSON Format]
+        P3[Formalize Language & Rephrase Content]
+        P4[Apply Professional Tone & Formatting]
+        P5[Handle AI Processing Errors]
+    end
+    
+    AIProcess --> AIProcessPhase
+    AIProcessPhase --> TemplatePop[Template Population Phase]
+    
+    %% Template Population Phase
+    subgraph TemplatePopPhase [Template Processing]
+        direction TB
+        T1[Load Template DOCX from template/ folder]
+        T2[Create Anchor Paragraph for Positioning]
+        T3[Place Text Fields at Precise Coordinates]
+        T4[Format Lists & Bullet Points]
+        T5[Resize Content to Fit Designated Areas]
+        T6[Place Images/Logos at Specified Coordinates]
+        T7[Apply Font Styling & Formatting]
+        T8[Handle Content Overflow Issues]
+    end
+    
+    TemplatePop --> TemplatePopPhase
+    TemplatePopPhase --> Output[Save Filled DOCX to output/filled-resume.docx]
+    
+    %% Validation Phase
+    Output --> Validate[Validation Phase]
+    
+    subgraph ValidatePhase [Output Validation]
+        direction TB
+        V1[Open Generated DOCX in Microsoft Word]
+        V2[Check Content Alignment & Formatting]
+        V3[Verify All Sections Are Properly Filled]
+        V4[Identify Any Misalignments or Overflow Issues]
+    end
+    
+    Validate --> ValidatePhase
+    ValidatePhase --> Decision{Is Alignment Perfect?}
+    
+    %% Decision Paths
+    Decision -->|No| Adjust[Adjust Coordinate Mapping]
+    Adjust --> UpdateCoords[Update coords.json with New Measurements]
+    UpdateCoords --> RunMain
+    
+    Decision -->|Yes| Success[Success! Process Complete]
+    Success --> FinalOutput[Final Output: Professionally Formatted Resume]
+    
+    %% Azure Services Connection
+    AzureAI[Azure AI Document Intelligence Service]
+    AzureOpenAI[Azure OpenAI Service]
+    
+    E2 -.-> AzureAI
+    P1 -.-> AzureOpenAI
+    
+    %% External Files
+    ConfigFile[coords.json Configuration File]
+    EnvFile[.env Environment Variables]
+    TemplateFile[Resume-template-use.docx Template]
+    InputFile[shivam-cv.pdf Input Resume]
+    
+    S6 -.-> ConfigFile
+    S7 -.-> EnvFile
+    S4 -.-> TemplateFile
+    S5 -.-> InputFile
+    
+    %% Styling
+    style Start fill:#4CAF50,color:white
+    style Success fill:#4CAF50,color:white
+    style FinalOutput fill:#4CAF50,color:white
+    style AzureAI fill:#2196F3,color:white
+    style AzureOpenAI fill:#2196F3,color:white
+    
+    classDef phase fill:#E1F5FE,stroke:#01579B,stroke-width:2px
+    class SetupPhase,ExtractPhase,AIProcessPhase,TemplatePopPhase,ValidatePhase phase
+```
+
+****
+****
+
+
 
 
 # Complete Scenario of the Resume Templater Project
