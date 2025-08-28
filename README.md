@@ -12,7 +12,8 @@
 
 ### Complete Scenario of the Resume Templater Project
 
-I'll explain the entire project in a structured way: starting with the overall scenario (what the project does and why), then the requirements (what you need to set it up), and finally how to achieve the solution (step-by-step implementation and execution). This project is designed to automate the process of converting an unstructured resume PDF into a professionally formatted DOCX file using a template, leveraging AI for extraction and structuring.
+ ## overall scenario (what the project does and why):
+The requirements (what you need to set it up), and finally how to achieve the solution (step-by-step implementation and execution). This project is designed to automate the process of converting an unstructured resume PDF into a professionally formatted DOCX file using a template, leveraging AI for extraction and structuring.
 
 #### 1. Project Scenario: What It Does and Why
 - **Problem it Solves**: Resumes often come in various formats (e.g., PDFs with text, images, or scanned content), making them hard to standardize for job applications, HR systems, or corporate templates. Manually retyping or reformatting is time-consuming and error-prone. This project automates that by:
