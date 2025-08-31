@@ -5,6 +5,7 @@
 
 
 # Complete Mermaid Diagram for Sales Forecasting Project
+
 ```mermaid
 flowchart TD
     %% Start of the process
@@ -31,7 +32,7 @@ flowchart TD
         E3[Visualize Trends, Seasonality, Anomalies]
         E4[Analyze Customer & Plant Behaviors]
         E5[Detect Outliers & Handle Missing Data]
-        E6[Bonus: Classify Customers (New/Churned/Irregular)]
+        E6["Bonus: Classify Customers (New/Churned/Irregular)"]
     end
    
     EDA --> EDAPhase
@@ -40,11 +41,11 @@ flowchart TD
     %% Feature Engineering Phase
     subgraph FeatureEngPhase [Feature Engineering]
         direction TB
-        F1[Create Time-Based Features (Lags, Rolling Stats)]
-        F2[Encode Categorical Variables (Customer, Plant)]
-        F3[Handle Seasonality (Fourier Terms, Dummies)]
+        F1["Create Time-Based Features (Lags, Rolling Stats)"]
+        F2["Encode Categorical Variables (Customer, Plant)"]
+        F3["Handle Seasonality (Fourier Terms, Dummies)"]
         F4[Segment Data by Customer & Plant]
-        F5[Bonus: Custom Features for Irregular Customers]
+        F5["Bonus: Custom Features for Irregular Customers"]
     end
    
     FeatureEng --> FeatureEngPhase
@@ -54,11 +55,11 @@ flowchart TD
     subgraph ModelPhase [Model Training & Forecasting]
         direction TB
         M1[Split Data into Train/Test]
-        M2[Train Models (e.g., XGBoost, Prophet)]
+        M2["Train Models (e.g., XGBoost, Prophet)"]
         M3[Evaluate with MAPE, RMSE]
         M4[Forecast Next 12 Months per Customer/Plant]
-        M5[Aggregate to Plant Level & Validate >=80% Accuracy]
-        M6[Bonus: Specialized Models for Customer Types]
+        M5["Aggregate to Plant Level & Validate >=80% Accuracy"]
+        M6["Bonus: Specialized Models for Customer Types"]
     end
    
     Model --> ModelPhase
@@ -71,7 +72,7 @@ flowchart TD
         direction TB
         V1[Compare Forecasts vs. Test Data]
         V2[Visualize Predictions & Errors]
-        V3[Check Plant-Level Accuracy (>=80%)]
+        V3["Check Plant-Level Accuracy (>=80%)"]
         V4[Review Customer Segments & Bonus Classifications]
     end
    
@@ -99,6 +100,16 @@ flowchart TD
     classDef phase fill:#E1F5FE,stroke:#01579B,stroke-width:2px
     class SetupPhase,EDAPhase,FeatureEngPhase,ModelPhase,ValidatePhase phase
 ```
+
+
+
+
+
+
+
+
+
+
 ****
 # Complete Scenario of the Sales Forecasting Project
 ## Overall Scenario (What the Project Does):
