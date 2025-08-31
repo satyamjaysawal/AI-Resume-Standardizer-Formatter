@@ -94,7 +94,7 @@ flowchart TD
     Success --> FinalOutput[Final Output: Annotated Video with Alerts & Compliance Checks]
    
     %% Azure Services Connection
-    AzureOpenAI[Azure OpenAI Service (GPT-4o)]
+    AzureOpenAI["Azure OpenAI Service (GPT-4o)"]
    
     A3 -.-> AzureOpenAI
    
@@ -114,6 +114,27 @@ flowchart TD
     classDef phase fill:#E1F5FE,stroke:#01579B,stroke-width:2px
     class SetupPhase,DetectPhase,AnalyzePhase,AnnotatePhase,ValidatePhase phase
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ****
 # Complete Scenario of the Ice Coverage Checking Project
 ## Overall Scenario (What the Project Does):
