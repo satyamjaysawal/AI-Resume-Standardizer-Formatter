@@ -3,6 +3,14 @@
 
 
 
+
+
+
+
+
+
+
+
 # 🌟 GenAI-CV-ML-CaseStudies
 
 This repository contains my submission for the **Senior AI Engineer Technical Assignment (Round 2)**.
@@ -15,26 +23,32 @@ It includes **three real-world AI/ML projects** across **Generative AI, Computer
 
 ## 📂 Repository Contents
 
-| Project                                              | Type                  | File / Link                                                                                                                                                                                                                  |
-| ---------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Resume Standardization (GenAI Use Case)**          | 📄 Architecture Doc   | [AI-Driven-Resume-Formatter.md](https://github.com/satyamjaysawal/AI-Resume-Standardizer-Formatter/blob/main/AI-Driven-Resume-Formatter.md)                                                                                  |
-| **Ice Coverage Checking (Computer Vision Use Case)** | 📄 Architecture Doc   | [Ice-Coverage-Checking-Project.md](https://github.com/satyamjaysawal/AI-Resume-Standardizer-Formatter/blob/main/Ice-Coverage-Checking-Project.md)                                                                            |
-| **Sales Forecasting (Traditional ML Use Case)**      | ✅ Full Implementation | [Sales-Forecasting–Traditional-ML-UseCase.md](https://github.com/satyamjaysawal/AI-Resume-Standardizer-Formatter/blob/main/Sales-Forecasting%E2%80%93Traditional-ML-UseCase.md) <br> + Code in `main.py`, `requirements.txt` |
+| Project                                              | Type                  | File / Link                                                                                                                                               |
+| ---------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Resume Standardization (GenAI Use Case)**          | ✅ Full Implementation | [AI-Driven-Resume-Formatter.md](./AI-Driven-Resume-Formatter.md) <br> + Supporting code (`main.py`, `requirements.txt`, `coords.json`, `template/`, etc.) |
+| **Ice Coverage Checking (Computer Vision Use Case)** | 📄 Architecture Doc   | [Ice-Coverage-Checking-Project.md](./Ice-Coverage-Checking-Project.md)                                                                                    |
+| **Sales Forecasting (Traditional ML Use Case)**      | 📄 Architecture Doc   | [Sales-Forecasting–Traditional-ML-UseCase.md](./Sales-Forecasting–Traditional-ML-UseCase.md)                                                              |
 
 ---
 
-## ✅ Implemented in Full: Sales Forecasting (Traditional ML)
+## ✅ Fully Implemented: Resume Standardization (GenAI)
 
-**Objective**: Forecast sales **amount (\$)** and **quantity (lbs.)** for the next 12 months (Oct 2025 – Sep 2026), at both **customer** and **plant** levels.
+**Objective**: Build a **Generative AI application** that takes resumes in any format (PDF/DOCX) and converts them into a **standardized DOCX resume template**.
 
 **Highlights**:
 
-* Preprocessed weekly → monthly aggregated sales data.
-* Conducted **EDA** (seasonality, anomalies, plant-level trends).
-* Engineered features (lags, rolling means, Fourier terms).
-* Trained **XGBoost models** for regression.
-* Evaluated with **MAPE, RMSE**, validated **≥80% accuracy at plant level**.
-* Forecasts and plots saved in `output/`.
+* Accepts resumes in **PDF/DOCX** format.
+* Extracts information (name, skills, education, experience, etc.) using **Azure Document Intelligence**.
+* Structures & rephrases content into **professional tone** using **Azure OpenAI GPT-4o**.
+* Populates data into a **predefined DOCX template** using precise coordinate mapping.
+* Outputs a **professionally formatted, editable .docx resume**.
+
+**Bonus Features**:
+
+* Supports external tone/style instructions (e.g., formal, concise).
+* Error handling for misaligned sections or content overflow.
+
+---
 
 ### 🔹 How to Run
 
@@ -42,43 +56,47 @@ It includes **three real-world AI/ML projects** across **Generative AI, Computer
 # Install dependencies
 pip install -r requirements.txt
 
-# Preprocess input data (train + test → monthly format)
-python preprocess.py
-
-# Run forecasting pipeline
+# Run the pipeline
 python main.py
 ```
 
+**Inputs:**
+
+* `input/` → Resume files (`.pdf` or `.docx`)
+* `template/` → Standard resume template (`.docx`)
+* `coords.json` → Coordinate mapping for fields
+* `.env` → Azure service credentials
+
 **Outputs:**
 
-* `output/forecasts.csv` → forecasted sales for Oct 2025 – Sep 2026
-* `output/plots/` → visualizations of trends & forecasts
+* `output/filled-resume.docx` → Standardized formatted resume
 
 ---
 
-## 📝 Approach Documents
+## 📝 Architecture/Approach Documents
 
-### 1. Resume Standardization – GenAI
+### 1. Ice Coverage Checking – Computer Vision
 
-* Extracts resumes in any format (PDF/DOCX).
-* Uses **Azure Document Intelligence + OpenAI GPT-4o** for structured extraction & rephrasing.
-* Populates into standardized **DOCX template**.
-* Bonus: Supports tone/style guidelines.
+* Detect crates in video using **YOLOv8 + SORT tracking**.
+* Crop crate top → estimate % ice coverage with **Azure OpenAI Vision**.
+* Trigger alerts if coverage < threshold (e.g., 80%).
+* Bonus: Worker safety compliance detection (coat, gloves, hat).
 
-### 2. Ice Coverage Checking – Computer Vision
+### 2. Sales Forecasting – Traditional ML
 
-* Detects shrimp crates in surveillance video.
-* Crops crate top → estimates % ice coverage via **Azure OpenAI Vision**.
-* Flags crates below threshold (e.g., <80% coverage).
-* Bonus: Worker safety compliance (coat, gloves, hat) detection.
+* Aggregate weekly → monthly sales data.
+* Perform **EDA** (seasonality, anomalies, customer/plant patterns).
+* Train **XGBoost/Prophet models** for forecasting.
+* Forecast next 12 months (amount & quantity) at both **customer & plant level**.
+* Bonus: Handle new/churned/irregular customers.
 
 ---
 
 ## ⚡ Challenges & Future Enhancements
 
-* **Sales Forecasting**: Handle sparse/irregular customers via hierarchical models.
-* **Resume Formatter**: Automate Word template coordinate mapping, add web UI.
-* **Ice Coverage**: Improve robustness across lighting, optimize Azure API usage.
+* **Resume Formatter**: Automating template coordinate mapping; adding web-based upload/preview UI.
+* **Ice Coverage**: Stability across lighting conditions; real-time performance improvements.
+* **Sales Forecasting**: Hierarchical forecasting; improving accuracy for sparse customer segments.
 
 ---
 
@@ -86,12 +104,11 @@ python main.py
 
 This submission demonstrates:
 
-* **GenAI application design** (resume standardization).
-* **Computer Vision + Vision-Language integration** (ice coverage).
-* **Traditional ML for forecasting** (sales pipeline).
+* **GenAI application development** (resume formatter).
+* **Computer Vision pipeline design** (ice coverage).
+* **Traditional ML forecasting architecture** (sales forecasting).
 
 ---
-
 
 
 
